@@ -25,11 +25,13 @@ public class PaymentController {
 
     @GetMapping(value = "/payment/discovery")
     public Object discovery(){
-        List<String> services = discoveryClient.getServices();  //得到所有的微服务
+        //得到所有的微服务
+        List<String> services = discoveryClient.getServices();
         for (String element : services) {
             log.info("*****element:"+element);
         }
-        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PROVIDER-SERVICE"); //得到一个具体微服务的所有实例
+        //得到一个具体微服务的所有实例
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PROVIDER-SERVICE");
         for (ServiceInstance instance : instances){
             log.info(instance.getServiceId()+"\t"+instance.getHost()+"\t"+instance.getPort()+"\t"+instance.getUri());
         }
