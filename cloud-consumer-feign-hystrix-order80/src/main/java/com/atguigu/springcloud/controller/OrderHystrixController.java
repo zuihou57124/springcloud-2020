@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 @Slf4j
 
 //全局默认fallback方法
-@DefaultProperties(defaultFallback = "payment_Global_FallbackMethod")
+//@DefaultProperties(defaultFallback = "payment_Global_FallbackMethod")
 public class OrderHystrixController {
     @Resource
     private PaymentHystrixService paymentHystrixService;
@@ -30,9 +30,9 @@ public class OrderHystrixController {
     /*@HystrixCommand(fallbackMethod = "paymentTimeOutFallBackMethod",commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "1500")
     })*/
-    @HystrixCommand
+    //@HystrixCommand //此注解优先级最高，会覆盖全局默认方法和定制类
     public String paymentInfo_TimeOut(@PathVariable("id") Integer id){
-        int age = 10/0;//手动抛出异常  触发熔断
+        //int age = 10/0;//手动抛出异常  触发熔断
         return paymentHystrixService.paymentInfo_TimeOut(id);
     }
 
