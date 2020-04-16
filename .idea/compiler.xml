@@ -29,7 +29,6 @@
         <module name="cloud-api-commons" />
         <module name="cloud-consumer-feign-order80" />
         <module name="cloud-config-client-3355" />
-        <module name="cloud-consumer-hystrix-dashboard9001" />
         <module name="cloud-consumer-order80" />
         <module name="cloudalibaba-sentinel-service8401" />
         <module name="cloud-provider-hystrix-payment8001" />
