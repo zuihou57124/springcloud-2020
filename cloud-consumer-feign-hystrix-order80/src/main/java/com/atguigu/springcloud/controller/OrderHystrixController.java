@@ -32,7 +32,7 @@ public class OrderHystrixController {
     })*/
     @HystrixCommand
     public String paymentInfo_TimeOut(@PathVariable("id") Integer id){
-        //int age = 10/0;//手动抛出异常  触发熔断
+        int age = 10/0;//手动抛出异常  触发熔断
         return paymentHystrixService.paymentInfo_TimeOut(id);
     }
 
@@ -41,7 +41,6 @@ public class OrderHystrixController {
     }
     /**
      * 全局 fallback 方法
-     * @return
      */
     public String payment_Global_FallbackMethod(){
         return "Global异常处理信息，请稍后再试。/(╥﹏╥)/~~";
