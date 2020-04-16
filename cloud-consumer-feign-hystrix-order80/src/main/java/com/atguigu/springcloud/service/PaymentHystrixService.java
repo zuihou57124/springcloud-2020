@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @date 2020/3/14 10:21
  */
 @Component
-@FeignClient(value = "CLOUD-PROVIDER-HYSTRIX-PAYMENT" ,fallback = PaymentFallbackService.class)
+//自定义fallback类
+@FeignClient(value = "CLOUD-PROVIDER-HYSTRIX-PAYMENT",fallback = PaymentFallbackService.class)
 public interface PaymentHystrixService {
 
     @GetMapping("/payment/hystrix/ok/{id}")
-    public String paymentInfo_OK(@PathVariable("id") Integer id);
+    String paymentInfo_OK(@PathVariable("id") Integer id);
 
     @GetMapping("/payment/hystrix/timeout/{id}")
-    public String paymentInfo_TimeOut(@PathVariable("id") Integer id);
+    String paymentInfo_TimeOut(@PathVariable("id") Integer id);
 }

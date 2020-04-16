@@ -26,8 +26,6 @@ public class PaymentService {
      * @HystrixCommand报异常后如何处理：
      * 一旦调用服务方法失败并抛出了错误信息后，
      * 会自动调用@HystrixCommand标注好的fallbackMethod调用类中的指定方法
-     *
-     * @param id
      * @return
      */
     @HystrixCommand(fallbackMethod = "paymentInfo_TimeOutHandler",commandProperties = {
@@ -36,7 +34,7 @@ public class PaymentService {
     })
     public String paymentInfo_Timeout(Integer id){
         int timeNumber = 5;
-        int age = 10/0;
+        int age = 10/0; //手动抛出异常  触发熔断
         /*try{
             TimeUnit.SECONDS.sleep(timeNumber);
         }catch (InterruptedException e){
@@ -67,7 +65,5 @@ public class PaymentService {
     public String paymentCircuitBreaker_fallback(@PathVariable("id") Integer id){
         return "id 不能负数，请稍后再试，o(╥﹏╥)o  id："+id;
     }
-
-
 
 }

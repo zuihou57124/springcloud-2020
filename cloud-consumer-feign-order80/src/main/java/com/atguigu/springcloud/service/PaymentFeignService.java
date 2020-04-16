@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(value = "CLOUD-PROVIDER-SERVICE")  //指定调用哪个微服务
 public interface PaymentFeignService {
 
-    @GetMapping(value = "/payment/get/{id}")    //哪个地址
+    @GetMapping(value = "/payment/get/{id}")    //指定微服务暴露的请求地址
     CommonResult<Payment> getPaymentById(@PathVariable("id") Long id);
 
+    @GetMapping(value = "/payment/discovery")//指定微服务暴露的请求地址
+    Object discovery();
+
     @GetMapping(value = "/payment/feign/timeout")
-    public String paymentFeignTimeout();
+    String paymentFeignTimeout();
 
 }

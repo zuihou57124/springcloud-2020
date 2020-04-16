@@ -22,6 +22,11 @@ public class OrderFeignController {
         return paymentFeignService.getPaymentById(id);
     }
 
+    @GetMapping(value = "/payment/discovery")//指定微服务暴露的请求地址
+    Object discovery(){
+        return paymentFeignService.discovery();
+    }
+
     @GetMapping(value = "/consumer/payment/feign/timeout")
     public String paymentFeignTimeout(){
         //openfeign底层ribbon，客户端默认等待1秒钟
