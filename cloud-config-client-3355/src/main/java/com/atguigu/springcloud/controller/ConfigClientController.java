@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RefreshScope
 public class ConfigClientController {
-    @Value("${config.info}")
+    @Value("${jdbc.username}")
     private String configInfo;  //要访问的3344上的信息
 
     @GetMapping("/configInfo")
