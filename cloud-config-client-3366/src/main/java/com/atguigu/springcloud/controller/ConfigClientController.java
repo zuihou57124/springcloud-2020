@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RefreshScope
 public class ConfigClientController {
-    @Value("${server.port}")
-    private String serverPort;
-    @Value(("${config.info}"))
-    private String configInfo;
+    @Value("${jdbc.username}")
+    private String username;
+    @Value(("${jdbc.password}"))
+    private String psd;
 
     @GetMapping("/configInfo")
     public String getConfigInfo(){
-        return "serverPort: "+serverPort+"\t\n\n configInfo: "+configInfo;
+        return "username: "+username+"\t\n\n configInfo: "+psd;
     }
 }
