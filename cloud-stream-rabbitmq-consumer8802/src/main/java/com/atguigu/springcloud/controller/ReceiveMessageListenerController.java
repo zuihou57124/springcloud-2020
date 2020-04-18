@@ -5,7 +5,7 @@ import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RestController;
+
 /**
  * @author wsk
  * @date 2020/3/17 14:24

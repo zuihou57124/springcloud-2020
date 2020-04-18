@@ -12,20 +12,20 @@ spring:
           environment: # 设置rabbitMQ的相关环境配置
             spring:
               rabbitmq:
-                host: localhost
+                host: 59.110.137.100
                 port: 5672
                 username: guest
                 password: guest
       bindings: # 服务的整合处理
         input: # 这个名字是一个通道的名称
-          destination: studyExchange # 表示要使用的exchange名称定义
+          destination: testExchange # 表示要使用的exchange名称定义
           content-type: application/json # 设置消息类型，本次为json，文本则设为text/plain
           binder: defaultRabbit # 设置要绑定的消息服务的具体设置
           #group: atguiguA
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka
+      defaultZone: http://127.0.0.1:7001/eureka
   instance:
     lease-renewal-interval-in-seconds: 2 # 设置心跳的间隔时间，默认30
     lease-expiration-duration-in-seconds: 5 # 超过5秒间隔，默认90
